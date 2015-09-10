@@ -516,7 +516,20 @@ var helpers = {
 			return '';
 		}
 
-		return lodash.capitalize(moment(date).fromNow());
+		return lodash.capitalize(moment(new Date(date)).fromNow());
+	},
+	moment: function (date, format, options) {
+		var options = getLastArgument(arguments),
+			date = format && date || new Date().valueOf(),
+			lang,
+			format;
+
+		if (!options) {
+			return '';
+		}
+		lang = options && options.hash && options.hash.lang || $('html').attr('lang') || 'en';
+		format = arguments.length > 2 && format || options && options.hash && options.hash.format || 'YYYY-MM-DD';
+		return moment(new Date(date), format, lang);
 	},
 	link: function (url, options) {
 		if (arguments.length < 2) {

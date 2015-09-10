@@ -427,11 +427,11 @@ define(['jquery', 'moment', 'lodash'], function ($, moment, lodash) {
 				return '';
 			}
 
-			return lodash.capitalize(moment(date).fromNow());
+			return lodash.capitalize(moment(new Date(date)).fromNow());
 		},
 		moment: function (date, format, options) {
 			var options = getLastArgument(arguments),
-				date = format && moment(date) || moment(),
+				date = format && date || new Date().valueOf(),
 				lang,
 				format;
 
@@ -439,8 +439,10 @@ define(['jquery', 'moment', 'lodash'], function ($, moment, lodash) {
 				return '';
 			}
 			lang = options && options.hash && options.hash.lang || $('html').attr('lang') || 'en';
+			date = unwrapFunctionArgument(date);
 			format = arguments.length > 2 && format || options && options.hash && options.hash.format || 'YYYY-MM-DD';
-			return moment(date, format, lang);
+			format = unwrapFunctionArgument(format);
+			return moment(new Date(date), format, lang);
 		},
 		link: function (url, options) {
 			if (arguments.length < 2) {
