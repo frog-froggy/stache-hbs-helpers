@@ -416,7 +416,7 @@ var helpers = {
 			i = 0;
 
 		while (i < argLength) {
-			var test = utils.unwrapFunctionArgument(arguments[i]);
+			var test = arguments[i];
 
 			if (!test) {
 				success = false;
@@ -544,7 +544,7 @@ var helpers = {
 		return url;
 	},
 	serialize: function (context, options) {
-		return new handlebars.SafeString(JSON.stringify(options ? utils.unwrapFunctionArgument(context) : {}));
+		return new handlebars.SafeString(JSON.stringify(options ? context : {}));
 	},
 	uniqueId: function (options) {
 		if (options.data._uniqueMaxId) {
