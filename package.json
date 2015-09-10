@@ -1,0 +1,24 @@
+{
+  "name": "stache-hbs-helpers",
+  "version": "1.0.0",
+  "description": "Useful helpers for handlebars and stache.",
+  "main": "hbs.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://frog-froggy@github.com/frog-froggy/stache-hbs-helpers.git"
+  },
+  "author": "Frog Froggy <frog-froggy1@yandex.ru>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/frog-froggy/stache-hbs-helpers/issues"
+  },
+  "homepage": "https://github.com/frog-froggy/stache-hbs-helpers#readme",
+  "dependencies": {
+    "handlebars": "^3.0.3",
+    "lodash": "^3.10.0",
+    "moment": "^2.10.3"
+  }
+}

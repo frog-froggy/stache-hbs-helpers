@@ -1,0 +1,11 @@
+{
+  "name": "stache-hbs-helpers",
+  "version": "1.0.0",
+  "homepage": "https://github.com/frog-froggy/stache-hbs-helpers",
+  "authors": [
+    "Frog Froggy <frog-froggy1@yandex.ru>"
+  ],
+  "description": "Useful helpers for stache and handlebars.",
+  "main": "stache.js",
+  "license": "MIT"
+}
