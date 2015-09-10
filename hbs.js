@@ -1,4 +1,4 @@
-var _ = require('lodash'),
+var lodash = require('lodash'),
 	moment = require('moment'),
 	handlebars = require('handlebars');
 
@@ -85,7 +85,7 @@ module.exports = {
 
 		options = options || {};
 
-		var fn = options.fn || _.noop,
+		var fn = options.fn || lodash.noop,
 			context = Object.create(this || /* istanbul ignore next */ {}),
 			template = handlebars.partials[name];
 
@@ -124,7 +124,7 @@ module.exports = {
 	block: function (name, options) {
 		options = options || {};
 
-		var fn = options.fn || _.noop,
+		var fn = options.fn || lodash.noop,
 			context = this || {};
 
 		applyStack(context);
@@ -549,7 +549,7 @@ module.exports = {
 		if (options.data._uniqueMaxId) {
 			return options.data._uniqueMaxId;
 		}
-		return (options.data._uniqueMaxId = _.uniqueId('id-'));
+		return (options.data._uniqueMaxId = lodash.uniqueId('id-'));
 	},
 	target: function (behavior, options) {
 		var target = '_self';
