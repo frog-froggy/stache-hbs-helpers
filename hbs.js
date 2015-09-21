@@ -560,7 +560,7 @@ var helpers = {
 		return new handlebars.SafeString(JSON.stringify(options ? context : {}));
 	},
 	uniqueId: function (options) {
-		if (options.data._uniqueMaxId) {
+		if (options.data.__proto__._uniqueMaxId) {
 			return options.data._uniqueMaxId;
 		}
 		return (options.data._uniqueMaxId = lodash.uniqueId('id-'));
