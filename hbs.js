@@ -560,10 +560,10 @@ var helpers = {
 		return new handlebars.SafeString(JSON.stringify(options ? context : {}));
 	},
 	uniqueId: function (options) {
-		if (options.data.__proto__._uniqueMaxId) {
-			return options.data._uniqueMaxId;
+		if (this.hasOwnProperty('_uniqueMaxId')) {
+			return this._uniqueMaxId;
 		}
-		return (options.data._uniqueMaxId = lodash.uniqueId('id-'));
+		return (this._uniqueMaxId = lodash.uniqueId('id-'));
 	},
 	target: function (behavior, options) {
 		var target = '_self';
