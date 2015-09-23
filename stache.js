@@ -426,14 +426,22 @@ define(['jquery', 'moment', 'lodash'], function ($, moment, lodash) {
 			if (!options) {
 				return '';
 			}
+			var lang = options && options.hash && options.hash.lang || $('html').attr('lang') || 'en',
+				prevLocale = moment.locale(),
+				str;
 
-			return lodash.capitalize(moment(new Date(unwrapFunctionArgument(date))).fromNow());
+			moment.locale(lang);
+			str = lodash.capitalize(moment(new Date(unwrapFunctionArgument(date))).fromNow());
+			moment.locale(prevLocale);
+			return str;
 		},
 		moment: function (date, format, options) {
 			var options = getLastArgument(arguments),
 				date = format && date || new Date().valueOf(),
+				prevLocale = moment.locale(),
 				lang,
-				format;
+				format,
+				str;
 
 			if (!options) {
 				return '';
@@ -442,7 +450,10 @@ define(['jquery', 'moment', 'lodash'], function ($, moment, lodash) {
 			date = unwrapFunctionArgument(date);
 			format = arguments.length > 2 && format || options && options.hash && options.hash.format || 'YYYY-MM-DD';
 			format = unwrapFunctionArgument(format);
-			return moment(new Date(date), format, lang);
+			moment.locale(lang);
+			str = moment(new Date(date), format, lang);
+			moment.locale(prevLocale);
+			return str;
 		},
 		link: function (url, options) {
 			if (arguments.length < 2) {
