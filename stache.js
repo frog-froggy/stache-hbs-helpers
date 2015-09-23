@@ -427,7 +427,7 @@ define(['jquery', 'moment', 'lodash'], function ($, moment, lodash) {
 				return '';
 			}
 
-			return lodash.capitalize(moment(new Date(date)).fromNow());
+			return lodash.capitalize(moment(new Date(unwrapFunctionArgument(date))).fromNow());
 		},
 		moment: function (date, format, options) {
 			var options = getLastArgument(arguments),
