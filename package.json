@@ -1,6 +1,6 @@
 {
   "name": "stache-hbs-helpers",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Useful helpers for handlebars and stache.",
   "main": "hbs.js",
   "scripts": {

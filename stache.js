@@ -349,24 +349,21 @@ define(['jquery', 'moment', 'lodash'], function ($, moment, lodash) {
 				return options.inverse(this);
 			}
 		},
-		'in': function () {
-			if (arguments.length < 3) {
-				options = getLastArgument(arguments);
-				return options ? options.inverse(this) : '';
-			}
-
-			var testVal = arguments[0],
-				validVals = lodash.map(Array.prototype.slice.call(arguments, 1, arguments.length - 1), function (arg) {
+		'in': function (testVal) {
+			var options = getLastArgument(arguments),
+				testVals = lodash.map(Array.prototype.slice.call(arguments, 1, arguments.length - 1), function (arg) {
 					return unwrapFunctionArgument(arg);
-				}),
-				options = validVals.pop();
+				});
 
+			if (arguments.length < 3) {
+				return options.inverse ? options.inverse(this) : false;
+			}
 			testVal = unwrapFunctionArgument(testVal);
-			if (validVals.indexOf(testVal) !== -1) {
-				return options.fn(this);
+			if (testVals.indexOf(testVal) !== -1) {
+				return options.fn ? options.fn(this) : true;
 			}
 			else {
-				return options.inverse(this);
+				return options.inverse ? options.inverse(this) : false;
 			}
 		},
 		array: function () {
