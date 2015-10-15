@@ -452,7 +452,7 @@ define(['jquery', 'moment', 'lodash'], function ($, moment, lodash) {
 			moment.locale(prevLocale);
 			return str;
 		},
-		link: function (url, options) {
+		linkHref: function (url, options) {
 			if (arguments.length < 2) {
 				return '';
 			}

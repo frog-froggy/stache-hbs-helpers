@@ -531,7 +531,7 @@ var helpers = {
 		format = arguments.length > 2 && format || options && options.hash && options.hash.format || 'YYYY-MM-DD';
 		return moment(new Date(date), format, lang);
 	},
-	link: function (url, options) {
+	linkHref: function (url, options) {
 		if (arguments.length < 2) {
 			return '';
 		}
