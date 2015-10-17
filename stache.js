@@ -273,7 +273,7 @@ define(['jquery', 'moment', 'lodash'], function ($, moment, lodash) {
 			if (arguments.length < 2) {
 				return options.inverse ? options.inverse(this) : false;
 			}
-			tests = Array.prototype.slice.apply(arguments, 0, arguments.length - 1);
+			tests = Array.prototype.slice.call(arguments, 0, arguments.length - 1);
 			return !_.any(tests) ?
 				(options.fn ? options.fn(this) : true) :
 				(options.inverse ? options.inverse(this) : false);
