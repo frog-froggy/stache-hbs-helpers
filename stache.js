@@ -267,6 +267,17 @@ define(['jquery', 'moment', 'lodash'], function ($, moment, lodash) {
 				return options.inverse(this);
 			}
 		},
+		neither: function () {
+			var options = getLastArgument(arguments), tests;
+
+			if (arguments.length < 2) {
+				return options.inverse ? options.inverse(this) : false;
+			}
+			tests = Array.prototype.slice.apply(arguments, 0, arguments.length - 1);
+			return !_.any(tests) ?
+				(options.fn ? options.fn(this) : true) :
+				(options.inverse ? options.inverse(this) : false);
+		},
 		compare: function (left, operator, right, options) {
 			if (arguments.length < 4) {
 				options = getLastArgument(arguments);
